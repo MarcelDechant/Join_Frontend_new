@@ -75,7 +75,7 @@ function validateInputs(title, category, date) {
  */
 function createTaskObject(category, title, description, date, selectedPriority, subtasks, selectedContacts) {
   return {
-    _id: Date.now(),
+    id: Date.now(),
     category: category,
     title: title,
     description: description,

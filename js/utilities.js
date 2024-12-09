@@ -146,7 +146,7 @@ async function loadUserOfInternalPage() {
  * @throws {string} - If no task is found with the specified ID.
  */
 function getTaskById(taskId) {
-  let task = state.tasks.find(t => t._id === taskId);
+  let task = state.tasks.find(t => t.id === taskId);
   if (task !== undefined) { return task; }
   throw taskId;
 }

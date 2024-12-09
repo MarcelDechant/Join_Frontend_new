@@ -115,7 +115,7 @@ function searchTask() {
  * @param {string} taskId - The ID of the task to delete.
  */
 async function deleteTask(taskId) {
-  state.tasks = state.tasks.filter(t => t._id !== taskId);
+  state.tasks = state.tasks.filter(t => t.id !== taskId);
   await persistTasks(state.tasks, state.currentUser.email);
   reRenderTasksInBoard();
 }

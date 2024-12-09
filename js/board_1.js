@@ -52,7 +52,7 @@ function handleClick() {
 function createTaskElement(task) {
   let taskElement = document.createElement('div');
   taskElement.classList.add('task');
-  taskElement.setAttribute('data-task', task._id);
+  taskElement.setAttribute('data-task', task.id);
   addOpenMoveMenu(taskElement, task);
   addMoveMenu(taskElement, task);
   setDraggableAttributes(taskElement);
@@ -127,7 +127,7 @@ function setDraggableAttributes(taskElement) {
 function addClickEventListener(taskElement, task) {
   taskElement.addEventListener('click', (e) => {
     if (e.target.id === 'open-move-menu') {
-      toggleMoveMenu(task._id);
+      toggleMoveMenu(task.id);
     } else if (e.target.id === 'next-status') {
       nextStatus(task);
     } else if (e.target.id === 'previous-status') {
@@ -159,9 +159,9 @@ function getClosureObject(task) {
   return {
     task,
     openDetailPopup: () => {
-      openTaskDetailPopup(task._id, reRenderTasksInBoard);
+      openTaskDetailPopup(task.id, reRenderTasksInBoard);
     },
-    deleteThisTask: () => deleteTask(task._id),
+    deleteThisTask: () => deleteTask(task.id),
     prioritySVG: prioritySVGs[task.priority],
     priorityColor: determinePriorityColor(task),
     categoryColor: categoryColors[task.category],
@@ -243,6 +243,7 @@ function createBoardContactsDiv(task) {
   let contacts = task.contacts;
   if (contacts.length <= 3) {
     appendContactsToDiv(contacts, contactsDiv);
+
   } else {
     let firstThreeContacts = contacts.slice(0, 3);
     appendContactsToDiv(firstThreeContacts, contactsDiv);
@@ -277,7 +278,6 @@ function appendContactsToDiv(contacts, div) {
   for (let contactId of contacts) {
     let contact = getContactById(contactId);
     if (contact === null) { continue; }
-    
     let contactDiv = createContactDiv(contact);
     div.appendChild(contactDiv);
   }
@@ -311,7 +311,7 @@ function displayTasksInDragArea(status) {
   let tasks = state.tasks.filter(t => t.status === status);
   for (let task of tasks) {
     let taskElement = createTaskElement(task);
-    taskElement.taskId = task._id;
+    taskElement.taskId = task.id;
     let subtaskPercentage = calculateSubtaskPercentage(task.subTasks);
     let priorityColor = determinePriorityColor(task);
     let categoryColor = categoryColors[task.category];

@@ -341,13 +341,13 @@ function trySave(modal, closePopup) {
   applyEditStyles(modal);
   if (modal.originalTask === null) {
     let createdTask = {
-      _id: Date.now(),
+      id: Date.now(),
       ...modal.taskWIP,
       status: 'toDo',
     };
     state.tasks.push(createdTask);
   } else {
-    let edited = state.tasks.find(t => t._id === modal.originalTask._id);
+    let edited = state.tasks.find(t => t.id === modal.originalTask.id);
     Object.assign(edited, modal.taskWIP);
   }
   closePopup();

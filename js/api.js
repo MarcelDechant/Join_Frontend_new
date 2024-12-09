@@ -88,7 +88,7 @@ let hardcodedDefaultData = {
   ],
   tasks: [
     {
-      "_id": 1711554501515,
+      "id": 1711554501515,
       "category": "User Story",
       "title": "Kochwelt Page @ Recipe Recommender ",
       "description": "Build start page with recipe ",
@@ -112,7 +112,7 @@ let hardcodedDefaultData = {
       "status": "toDo"
     },
     {
-      "_id": 1711554549487,
+      "id": 1711554549487,
       "category": "Technical Task",
       "title": "HTML Base Template Creation ",
       "description": "Create reusable HTML base ",
@@ -130,7 +130,7 @@ let hardcodedDefaultData = {
       "status": "awaitFeedback"
     },
     {
-      "_id": 1711554596868,
+      "id": 1711554596868,
       "category": "User Story",
       "title": "Daily Kochwelt Recipe ",
       "description": "Implement daily recipe ",
@@ -152,7 +152,7 @@ let hardcodedDefaultData = {
       "status": "awaitFeedback"
     },
     {
-      "_id": 1711554651284,
+      "id": 1711554651284,
       "category": "Technical Task",
       "title": "CSS Architecture Planning",
       "description": "Define CSS naming conventions ",
@@ -175,7 +175,7 @@ let hardcodedDefaultData = {
       "status": "done"
     },
     {
-      "_id": 1711554725881,
+      "id": 1711554725881,
       "category": "User Story",
       "title": "Created Contact & Tasks",
       "description": "rework Join ",
@@ -212,6 +212,7 @@ async function apiCall(body, url) {
       }
     }
   } else {
+    console.log(API_URL, { method: 'POST', headers: {'Content-Type': 'application/json', }, body: JSON.stringify(body) })
     let req = await fetch(API_URL, { method: 'POST', headers: {'Content-Type': 'application/json', }, body: JSON.stringify(body) });
     
     return req.json();

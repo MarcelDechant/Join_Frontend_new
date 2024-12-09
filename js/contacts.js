@@ -137,6 +137,7 @@ async function saveContact() {
  */
 function displayAllContacts() {
     let allContacts = state.contacts;
+    console.log('displayAllContacts',state.contacts)
     let newContactsDiv = document.getElementById('new-contacts');
     if (allContacts && allContacts.length > 0) {
         newContactsDiv.innerHTML = '';
@@ -155,7 +156,6 @@ function displayAllContacts() {
                 let randomColor = getRandomColor();
                 let initials = getInitials(name);
 
-                // Hier wird die Kontakt-ID als Parameter übergeben
                 let contactHTML =/*html*/`
                 <div class="new-contact-box" data-contactId="${contact['contactId']}" onclick="toggleSelection(this, '${name}', '${contact['add_email']}', '${contact['add_phone']}', '${randomColor}', '${contact['contactId']}')">
                <span class="small-contact-icon" style="background-color: ${randomColor};">${initials}</span>
