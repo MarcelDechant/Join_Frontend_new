@@ -50,13 +50,7 @@
   
 - **Backend:** Das Backend wurde mit Python und Django entwickelt. Es nutzt das Django REST Framework zur Bereitstellung der API. Du kannst den Admin-Bereich nach der Erstellung des Superusers über den `admin/`-Pfad erreichen.
 
-### Gast-Login
 
-Um einen Gast-User einzurichten, folge diesen Schritten:
-1. Registriere dich als normaler Benutzer.
-2. Gehe zu der Datei `login.js` und passe die `guestLogin()`-Funktion an, indem du die Daten des Gast-Users angibst.
-
----
 
 ## Technologien
 

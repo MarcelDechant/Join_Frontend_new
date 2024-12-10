@@ -14,14 +14,36 @@ async function init() {
  * @returns {Promise<void>}
  */
 async function guestLogin() {
-    let email = '';
-    let password = '';
-    email = 'guest01@guest.de'; /*muss über sign up Erstellt werden */
-    password = '987654321';
+    let email = 'guest01@guest.de';
+    let password = '987654321';
+    let name = 'Guest';
+
+    // Überprüfen, ob der Benutzer bereits existiert
+    let existingUsers = [];
+    try {
+        existingUsers = await getItem(USERS_TABLE);
+    } catch (error) {
+        console.error("Error fetching existing users:", error);
+    }
+
+    let guestUser = existingUsers.find(user => user.email.toLowerCase() === email.toLowerCase());
+
+    if (!guestUser) {
+        console.log("Creating Guest User...");
+        await tryRegisterUser(name, email, password);
+    } else {
+        console.log("Guest User already exists, resetting data...");
+
+        await persistTasks(hardcodedDefaultData.tasks, email);
+        await persistContacts(hardcodedDefaultData.contacts, email);
+    }
+
     let inputEmail = document.getElementById('inputEmail');
     let inputPassword = document.getElementById('inputPassword');
     inputEmail.value = email;
     inputPassword.value = password;
+
+    // Anmeldung durchführen
     checkLogin();
 }
 
