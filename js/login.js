@@ -29,11 +29,8 @@ async function guestLogin() {
     let guestUser = existingUsers.find(user => user.email.toLowerCase() === email.toLowerCase());
 
     if (!guestUser) {
-        console.log("Creating Guest User...");
         await tryRegisterUser(name, email, password);
     } else {
-        console.log("Guest User already exists, resetting data...");
-
         await persistTasks(hardcodedDefaultData.tasks, email);
         await persistContacts(hardcodedDefaultData.contacts, email);
     }

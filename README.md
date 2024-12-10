@@ -65,12 +65,6 @@ Wenn du zu diesem Projekt beitragen möchtest, erstelle einen Pull-Request und b
 
 ---
 
-## Lizenz
-
-Dieses Projekt steht unter der **MIT-Lizenz**. Weitere Informationen findest du in der `LICENSE`-Datei.
-
----
-
 ## Autor
 
 Dieses Projekt wurde von **Marcel Dechant** erstellt.

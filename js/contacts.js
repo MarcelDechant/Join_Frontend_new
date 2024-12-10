@@ -137,7 +137,6 @@ async function saveContact() {
  */
 function displayAllContacts() {
     let allContacts = state.contacts;
-    console.log('displayAllContacts',state.contacts)
     let newContactsDiv = document.getElementById('new-contacts');
     if (allContacts && allContacts.length > 0) {
         newContactsDiv.innerHTML = '';
@@ -418,7 +417,7 @@ async function deleteContact(name) {
     if (showContactDiv) {
         showContactDiv.classList.add('d-none');
     }
-    location.reload();
+    // location.reload();
 }
 
 /**

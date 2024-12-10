@@ -212,7 +212,6 @@ async function apiCall(body, url) {
       }
     }
   } else {
-    console.log(API_URL, { method: 'POST', headers: {'Content-Type': 'application/json', }, body: JSON.stringify(body) })
     let req = await fetch(API_URL, { method: 'POST', headers: {'Content-Type': 'application/json', }, body: JSON.stringify(body) });
     
     return req.json();
